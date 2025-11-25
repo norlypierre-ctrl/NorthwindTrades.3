@@ -71,7 +71,7 @@ public class Main {
                                     "%n--------------------------------%n", ctName, cpName, city, country, phone);
                         }
                     }
-                    case 3 -> System.out.println("GoodBye");
+                    case 0 -> System.out.println("GoodBye");
                     default -> System.out.println("Invalid choice!");
                 }
             }
