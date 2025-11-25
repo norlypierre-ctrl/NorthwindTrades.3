@@ -23,7 +23,7 @@ public class Main {
 
             String query = "SELECT ProductID, ProductName, UnitPrice, UnitsInStock " +
                     "FROM Products";
-            String query2 = "SELECT ContactName, CompanyName, City, Country, Phone" +
+            String query2 = "SELECT ContactName, CompanyName, City, Country, Phone " +
                     "FROM Customers";
             PreparedStatement psP = conn.prepareStatement(query);
             PreparedStatement psC = conn.prepareStatement(query2);
