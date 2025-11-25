@@ -45,31 +45,32 @@ public class Main {
                     continue;
                 }
 
-                while (rsP.next()) {
-                    int id = rsP.getInt("ProductID");
-                    String pName = rsP.getString("ProductName");
-                    double price = rsP.getDouble("UnitPrice");
-                    int stock = rsP.getInt("UnitsInStock");
-                    System.out.printf(" ProductID: %s%n ProductName: %s%n UnitPrice: %s%n UnitInStock: %s%n" +
-                            "%n--------------------------------%n", id, pName, price, stock);
-                }
-
-                while (rsC.next()) {
-                    String ctName = rsC.getString("ContactName");
-                    String cpName = rsC.getString("CompanyName");
-                    String city = rsC.getString("City");
-                    String country = rsC.getString("Country");
-                    int phone = rsC.getInt("Phone");
-                    System.out.printf(" ContactName: %s%n CompanyName: %s%n City: %s%n Country: %s Phone: %s%n" +
-                            "%n--------------------------------%n", ctName, cpName, city, country, phone);
-                }
-
                 choice = scanner.nextInt();
                 scanner.nextLine();
 
                 switch (choice) {
-                    case 1 -> System.out.println(rsP);
-                    case 2 -> System.out.println(rsC);
+                    case 1 -> {
+                        while (rsP.next()) {
+                            int id = rsP.getInt("ProductID");
+                            String pName = rsP.getString("ProductName");
+                            double price = rsP.getDouble("UnitPrice");
+                            int stock = rsP.getInt("UnitsInStock");
+                            System.out.printf(" ProductID: %s%n ProductName: %s%n UnitPrice: %s%n UnitInStock: %s%n" +
+                                    "%n--------------------------------%n", id, pName, price, stock);
+                        }
+                    }
+                    case 2 -> {
+
+                        while (rsC.next()) {
+                            String ctName = rsC.getString("ContactName");
+                            String cpName = rsC.getString("CompanyName");
+                            String city = rsC.getString("City");
+                            String country = rsC.getString("Country");
+                            String phone = rsC.getString("Phone");
+                            System.out.printf(" ContactName: %s%n CompanyName: %s%n City: %s%n Country: %s Phone: %s%n" +
+                                    "%n--------------------------------%n", ctName, cpName, city, country, phone);
+                        }
+                    }
                     case 3 -> System.out.println("GoodBye");
                     default -> System.out.println("Invalid choice!");
                 }
