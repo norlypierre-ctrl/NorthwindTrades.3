@@ -80,6 +80,30 @@ public class Main {
             System.out.println("An SQLException Occurred: " + e.getMessage());
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
+        } finally {
+            if (resultSet!= null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (preparedStatement!= null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         scanner.close();
     }
